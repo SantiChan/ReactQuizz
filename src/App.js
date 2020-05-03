@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route,  BrowserRouter } from 'react-router-dom';
-import Configuration from './components/configurationGame';
-import Home from './components/home';
+import ConfigurationGame from './components/ConfigurationGame';
+import Home from './components/Home';
 
 function App() {
     return (
         <BrowserRouter>
             <Route exact path="/" component={Home} />
-            <Route exact path="/configuration" component= {Configuration} />
+            <Route exact path="/configuration" component= {ConfigurationGame} />
         </BrowserRouter>
     );
 }

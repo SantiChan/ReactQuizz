@@ -3,7 +3,7 @@ import addPl from '../images/players.jpeg';
 import newPlayer from '../images/download.jpeg';
 import '../components.css';
 
-class Home extends Component {
+class ConfigurationGame extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,4 +40,4 @@ addPlayer(){
     )}
 }
 
-export default Home
+export default ConfigurationGame
