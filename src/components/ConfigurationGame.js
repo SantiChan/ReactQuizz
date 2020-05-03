@@ -3,19 +3,27 @@ import addPl from '../images/players.jpeg';
 import newPlayer from '../images/download.jpeg';
 import '../components.css';
 
+
 class ConfigurationGame extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
-            showPlayer: false
+            showPlayer: false,
+            listPlayers : []
         }
-        // this.handleChange = this.handleChange.bind(this);
     }
+
 addPlayer(){
+    if (this.state.listPlayers.length < 5) {
+        this.state.listPlayers.push(<img src={newPlayer}></img>);
+        this.state.listPlayers.push(this.state.listPlayers.length  + 1)
+    }
     this.setState({
         showPlayer: true
     })
 }
+
     render(){
     return(
         <div className="configurationGame">
@@ -29,10 +37,10 @@ addPlayer(){
                     {
                     this.state.showPlayer?
                     <div>
-                        <img src={newPlayer}></img>
+                        {this.state.listPlayers}
                     </div>
                     :null
-                }
+                    }
                 </div>
             </div>
         </div>
