@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../../images/svg/logo.svg';
 import './style.css';
 
+import Button from '../Button';
+
 class Home extends Component {
     render(){
-    return(
-        <div className="homeContainer">
-            <div className="homeTitle">
-                <img src={logo} />
+        return(
+            <div className="container">
+                <div className="title">
+                    <img src={logo} />
+                </div>
+                <div className="button-container">
+                    <div className="subtitle">
+                        <span>¿Quieres crear tu propio juego de preguntas?</span>
+                    </div>
+                    <Button 
+                        to="/configuration" 
+                        onClick={(event)=> event.preventDefault()} 
+                        large={true} 
+                        gradiant={true}
+                    >
+                        Empezar!
+                    </Button>
+                </div>
             </div>
-            <div className="question">
-                <span>¿Quieres crear tu propia juego de preguntas?</span>
-            </div>
-            <Link to="/configuration">
-                <button type="button">
-                    Empieza!
-                </button>
-            </Link>
-        </div>
-        
-    )}
+            
+        )
+    }
 }
 
 export default Home

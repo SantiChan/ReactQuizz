@@ -1,0 +1,47 @@
+
+.btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 18px;
+    margin: 10px auto;
+    display: block;
+    border: 0;
+}
+
+.btn.btn-small {
+    font-size: 12px;
+    padding: 10px 25px;
+    border-radius: 13px;
+}
+
+.btn.btn-big {
+    font-size: 22px;
+    padding: 20px 35px;
+    border-radius: 23px;
+}
+
+.btn.btn-large {
+    width: 80%;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%);
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+}
+.btn-grad:hover { 
+    background-position: right center; 
+}
+
+.btn.btn-positive {
+    background: transparent;
+    border-color: #1ec51e;
+    border-width: 2px;
+}
+
+.btn.btn-negative {
+    background: transparent;
+    border-color: #e42a2a;;
+    border-width: 2px;
+}
