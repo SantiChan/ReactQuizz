@@ -9,17 +9,21 @@ const Button = (props) => {
         history,
         children,
         to,
-        onClick
+        onClick,
+        gradiant,
+        type,
+        size,
+        large
       } = props;
 
     const btnClass = classNames({
         'btn': true,
-        'btn-grad': props.gradiant && (!props.type || !props.type === 'default'),
-        'btn-big': props.size === 'big',
-        'btn-small': props.size === 'small',
-        'btn-positive': props.type === 'positive',
-        'btn-negative': props.type === 'negative',
-        'btn-large': props.large,
+        'btn-grad': gradiant && (!type || !type === 'default'),
+        'btn-big': size === 'big',
+        'btn-small': size === 'small',
+        'btn-positive': type === 'positive',
+        'btn-negative': type === 'negative',
+        'btn-large': large,
     });
 
         return(
