@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
-import addPlayer from '../images/players.jpeg';
-import playerIcon from '../images/download.jpeg';
-import '../components.css';
-
+import '/style.css';
 
 class ConfigurationGame extends Component {
     
@@ -14,23 +12,14 @@ class ConfigurationGame extends Component {
         }
     }
 
-    addPlayer(color = 'black') {
+    addPlayer(color = 'red', name = `player ${this.state.listPlayers.length + 1}`) {
         const newPlayer = {
-            color
+            color,
+            name
         }
 
         if (this.state.listPlayers.length < 5) {
-            // const initialArray = [1,2,3] 
-            // const array = [...prevArray, 4]
-            // sames as 
-            // const array = [1,2,4];
-            // array.push(4);
-
-            this.setState(prevState => 
-                ({ 
-                    listPlayers: [...prevState.listPlayers, newPlayer] 
-                })
-            );
+            this.setState(prevState => ({ listPlayers: [...prevState.listPlayers, newPlayer] }) );
         }
     }
 
@@ -42,10 +31,15 @@ class ConfigurationGame extends Component {
                     <div className="addPLayer">
                         <p>-Añade el numero de jugadores! (hasta 5 jugadores)</p>
                         <button type="button" onClick={ () => this.addPlayer() }>
-                            <img src={ addPlayer } className="addPL" alt="playerPics"></img>
+                            <FontAwesomeIcon icon="user-plus" />
                         </button>
                         <div>
-                            { this.state.listPlayers.map(player => <img src={ playerIcon } alt='pl' className='plImg'/>) }
+                            {this.state.listPlayers.map(player => 
+                                (<div>
+                                    <span>{player.name}</span>
+                                    <FontAwesomeIcon icon="poo" color={player.color}/>
+                                </div>)
+                            )}
                         </div>
                     </div>
                     <div className='numRounds'>
