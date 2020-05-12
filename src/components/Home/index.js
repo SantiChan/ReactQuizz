@@ -4,7 +4,38 @@ import './style.css';
 
 import Button from '../Button';
 
+const rowOfCircles = 3;
+const circlesPerRow = 4;
+
+const getRowOfCircles = function() {
+    let circles = [];
+
+    for (let index = 0; index < circlesPerRow; index++) {
+        circles.push(<div className="litle-circle"></div>);
+    }
+    
+    return circles;
+}
+
+const getBunchOfCircles = function() {
+    let rows = [], 
+        iterator = 0;
+
+    while (++iterator <= rowOfCircles) {
+        const circles = getRowOfCircles([]);
+
+        rows.push(
+            <div className="row-of-circles">
+                {circles}
+            </div>    
+        );
+    }
+
+    return rows;
+}
+
 class Home extends Component {
+
     render(){
         return(
             <div className="container">
@@ -12,24 +43,7 @@ class Home extends Component {
                     <div className="square"></div>
                     <div className="circle"></div>
                     <div className="bunch-of-circles">
-                        <div className="row-of-circles">
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                        </div>
-                        <div className="row-of-circles">
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                        </div>                        
-                        <div className="row-of-circles">
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                            <div className="litle-circle"></div>
-                        </div>
+                        {getBunchOfCircles()}
                     </div>
                     <div className="triangle"></div>
                 </div>
@@ -56,4 +70,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default Home;
