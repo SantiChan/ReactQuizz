@@ -8,9 +8,25 @@ class ConfigurationGame extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listPlayers : []
+            listPlayers : [],
+            show: false,
+            search: '',
         }
     }
+
+    updateSearch = (event) =>{ 
+        console.log(event)
+        this.setState({search: event.target.value})
+    }
+
+    showModal = () => {
+        this.setState({ show: true });
+        
+      };
+    
+      hideModal = () => {
+        this.setState({ show: false });
+      };
 
     addPlayer(color = 'red', name = `player ${this.state.listPlayers.length + 1}`) {
         const newPlayer = {
@@ -30,17 +46,23 @@ class ConfigurationGame extends Component {
                     <p>Configuracion de la partida</p>
                     <div className="addPLayer">
                         <p>-Añade el numero de jugadores! (hasta 5 jugadores)</p>
-                        <button type="button" onClick={ () => this.addPlayer() }>
+                        <Modal show={this.state.show} handleClose={this.hideModal} handleClick={() => this.addPlayer()}>
+                            <form>
+                                <label>
+                                    Name:
+                                    <input type="text" value={this.state.search} onChange={this.updateSearch} name="name" />
+                                </label>
+                            </form>
+                        </Modal>
+                        <button type="button" onClick={ this.showModal }>
                             <FontAwesomeIcon icon="user-plus" />
                         </button>
-                        <div>
-                            {this.state.listPlayers.map(player => 
+                        {this.state.listPlayers.map(player => 
                                 (<div>
-                                    <span>{player.name}</span>
+                                    <span>{this.state.search}</span>
                                     <FontAwesomeIcon icon="poo" color={player.color}/>
                                 </div>)
                             )}
-                        </div>
                     </div>
                     <div className='numRounds'>
                         <p>-Numero de rondas (minimo 5 maximo 10)</p>
@@ -83,5 +105,25 @@ class ConfigurationGame extends Component {
         )
     }
 };
+
+const Modal = ({ handleClose, handleClick, show, children }) => {
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+  
+    return (
+      <div className={showHideClassName}>
+        <section className='modal-main'>
+          {children}
+          <button
+            onClick={handleClick}>
+            Añadir
+          </button>
+          <button
+            onClick={handleClose}>
+            Cerrar
+          </button>
+        </section>
+      </div>
+    );
+  };
 
 export default ConfigurationGame;
