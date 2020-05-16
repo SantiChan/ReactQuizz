@@ -41,7 +41,7 @@ class ConfigurationGame extends Component {
 
     render() {
         return(
-            <div className="configurationGame">
+            <div className="configuration-game">
                 <div className="gameSettings">
                     <p>Configuracion de la partida</p>
                     <div className="addPLayer">
@@ -55,7 +55,7 @@ class ConfigurationGame extends Component {
                             </form>
                         </Modal>
                         <button type="button" onClick={ this.showModal }>
-                            <FontAwesomeIcon icon="user-plus" />
+                            <FontAwesomeIcon icon="user-plus" size="6x" />
                         </button>
                         {this.state.listPlayers.map(player => 
                                 (<div>
