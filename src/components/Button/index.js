@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router'
-import './style.css';
+import './style.scss';
 
 import { classNames } from '../../utils';
 

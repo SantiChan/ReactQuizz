@@ -25,13 +25,13 @@ class ConfigurationGame extends Component {
 
     render() {
         return(
-            <div className="configurationGame">
+            <div className="configuration-game">
                 <div className="gameSettings">
                     <p>Configuracion de la partida</p>
                     <div className="addPLayer">
                         <p>-Añade el numero de jugadores! (hasta 5 jugadores)</p>
                         <button type="button" onClick={ () => this.addPlayer() }>
-                            <FontAwesomeIcon icon="user-plus" />
+                            <FontAwesomeIcon icon="user-plus" size="6x"/>
                         </button>
                         <div>
                             {this.state.listPlayers.map(player => 

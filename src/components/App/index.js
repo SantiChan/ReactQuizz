@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route,  BrowserRouter } from 'react-router-dom';
-import './style.css';
+import './style.scss';
 
 import ConfigurationGame from '../ConfigurationGame';
 import Home from '../Home';
