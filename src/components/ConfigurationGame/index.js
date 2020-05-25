@@ -11,23 +11,22 @@ class ConfigurationGame extends Component {
         this.state = {
             listPlayers : [],
             show: false,
-            search: '',
-            color: ['red', 'blue', 'green', 'yellow', 'orange']
+            inputName: '',
+            availableColors: ['red', 'blue', 'green', 'yellow', 'orange']
         }
     }
 
     updateSearch = (event) =>{ 
-        this.setState({search: event.target.value})
+        this.setState({inputName: event.target.value})
     }
 
     showModal = () => {
         this.setState({ show: true });
-        
-      };
+    };
     
-      hideModal = () => {
+    hideModal = () => {
         this.setState({ show: false });
-      };
+    };
 
     addPlayer(color = 'red', name = `player ${this.state.listPlayers.length + 1}`) {
         const newPlayer = {
@@ -46,11 +45,11 @@ class ConfigurationGame extends Component {
                     <p>Configuracion de la partida</p>
                     <div className="addPLayer">
                         <p>-Añade el numero de jugadores! (hasta 5 jugadores)</p>
-                        <Modal show={this.state.show} handleClose={this.hideModal} handleClick={() => this.addPlayer(this.state.color[this.state.listPlayers.length], this.state.search)}>
+                        <Modal show={this.state.show} handleClose={this.hideModal} handleClick={() => this.addPlayer(this.state.availableColors[this.state.listPlayers.length], this.state.inputName)}>
                             <form>
                                 <label>
                                     Name:
-                                    <input type="text" value={this.state.search} onChange={this.updateSearch} name="name" color="color" />
+                                    <input type="text" value={this.state.inputName} onChange={this.updateSearch} name="name"/>
                                     Maximo 5 jugadores.
                                 </label>
                             </form>
