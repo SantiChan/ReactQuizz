@@ -18,19 +18,43 @@
       font-size: 1.3em;
     }
     .configuration-game--players {
-      padding: 20px 50px 50px 50px;
+      padding: 20px 50px 20px 50px;
+      min-height: 140px;
+      box-sizing: border-box;
       border: solid 2px #9361c9;
       -webkit-box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.75);
       box-shadow: -10px -10px 0px 0px rgb(147, 97, 201);
       margin: 50px 0 0 10px;
 
+      .configuration-game--players-main {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .configuration-game--player{
+        display: flex;
+        flex-direction: column;
+        align-items: center;      
+        margin: 5px;
+        height: 50px;
+        width: 60px;
+        padding: 10px;
+        border-radius: 12px;
+        color: white;
+      }
       .configuration-game--add-player{
-        width: -moz-fit-content;
-        width: fit-content;
+        margin: 5px;
+        height: 50px;
+        width: 60px;
         padding: 10px;
         background-color: #d6d6d67d;
         border-radius: 12px;
+
+        .configuration-game--player-name {
+          font-size: 14px;
+          font-weight: 600;
+        }
       }
     }
   }
@@ -38,4 +62,24 @@
   .configuration-game--button {
     align-self: end;
   }
+}
+
+$green: #44d05c;
+$red: #ff464f;
+$blue: #4bade6;
+
+.green {
+  background: $green;
+}
+.red {
+  background: $red;
+}
+.blue {
+  background: $blue;
+}
+.pink {
+  background: #f12983;
+}
+.orange {
+  background: orange;
 }

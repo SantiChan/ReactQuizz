@@ -14,7 +14,7 @@ class ConfigurationGame extends Component {
             listPlayers : [],
             show: false,
             inputName: '',
-            availableColors: ['red', 'blue', 'green', 'yellow', 'orange']
+            availableColors: ['red', 'blue', 'green', 'pink', 'orange']
         }
     }
 
@@ -44,21 +44,24 @@ class ConfigurationGame extends Component {
         return(
             <div className="configuration-game">
                 <div className="configuration-game--content">
-                    <img className="configuration-game--logo" src={logo} />
+                    <img className="configuration-game--logo" src={logo}/>
                     <p className="configuration-name--title">Configuracion de la partida</p>
                     <div className="configuration-game--players">
-                        {this.state.listPlayers.length < 5 ? 
-                            <div className="configuration-game--add-player" type="button" onClick={ this.showModal }>
-                                <FontAwesomeIcon icon="user-plus" size="3x" />
-                            </div> 
-                            : null
-                        }
-                        {this.state.listPlayers.map(player => 
-                            (<div>
-                                <span>{player.name}</span>
-                                <FontAwesomeIcon icon="poo" color={player.color}/>
-                            </div>)
-                        )}
+                        <div className="configuration-game--players-main">
+                            {this.state.listPlayers.map(player => 
+                                (<div className={`configuration-game--player ${player.color}`}>
+                                    <FontAwesomeIcon icon="poo" color="#ffffffcf" size="2x"/>
+                                    <span className="configuration-game--player-name">{player.name}</span>
+                                </div>)
+                            )}
+                            {this.state.listPlayers.length < 5 ? 
+                                <div className="configuration-game--add-player" type="button" onClick={ this.showModal }>
+                                    <FontAwesomeIcon icon="user-plus" color ="#939393" size="3x"/>
+                                </div> 
+                                : null
+                            }
+                        </div>
+                        {this.state.listPlayers.length < 1 ? <span>Añade jugadores!</span> : null}
                     </div>
                     <div className='numRounds'>
                         <p>-Numero de rondas (minimo 5 maximo 10)</p>
