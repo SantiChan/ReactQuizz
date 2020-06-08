@@ -87,12 +87,11 @@ class ConfigurationGame extends Component {
                 </div>
                 <div className='configuration-game--button'>
                     <Button 
-                            to="/themes" 
-                            onClick={(event)=> event.preventDefault()} 
-                            large={true} 
-                            gradiant={true}
-                        >
-                            Vamos allá!
+                        to="/themes" 
+                        onClick={(event)=> event.preventDefault()} 
+                        large={true} 
+                        gradiant={true}>
+                        Vamos allá!
                     </Button>
                 </div>
                 <Modal 
