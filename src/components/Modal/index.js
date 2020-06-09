@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom';
+import React from 'react';
 import './style.scss';
 
-
 const Modal = ({ handleClose, handleClick, show, children }) => {
-    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+    const showHideClassName = show ? 'show' : 'hide';
     return (
-      <div className={showHideClassName}>
+      <div className={`modal ${showHideClassName}`}>
         <section className='modal-main'>
           {children}
           <button
             onClick={handleClick}>
-            Añadir
+            Continuar
           </button>
           <button
             onClick={handleClose}>
