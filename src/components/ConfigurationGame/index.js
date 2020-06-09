@@ -14,7 +14,9 @@ class ConfigurationGame extends Component {
             listPlayers : [],
             show: false,
             inputName: '',
-            availableColors: ['red', 'blue', 'green', 'pink', 'orange']
+            availableColors: ['red', 'blue', 'green', 'pink', 'orange'],
+            roundsNumber: [5, 6, 7, 8, 9, 10],
+            roundsTime: ['15 seg', '20 seg', '30 seg', '40 seg', '50 seg', '60 seg']
         }
     }
 
@@ -66,25 +68,17 @@ class ConfigurationGame extends Component {
                     <div className='numRounds'>
                         <p>-Numero de rondas (minimo 5 maximo 10)</p>
                         <select id="rounds" onchange=""> 
-                            <option value="">-- Rondas --</option> 
-                            <option value="5">5</option> 
-                            <option value="6">6</option>
-                            <option value="7">7</option> 
-                            <option value="8">8</option> 
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            {this.state.roundsNumber.map(rounds => (
+                                <option key={rounds} value={rounds} >{rounds}</option>
+                            ))}
                         </select> 
                     </div>
                     <div className='answerTime'>
                         <p>-Tiempo de respuesta (minim0 15 seg. maximo 1 min.)</p>
                         <select id="time" onchange=""> 
-                            <option value="">-- Tiempo --</option> 
-                            <option value="15s">15 seg</option> 
-                            <option value="20s">20 seg</option> 
-                            <option value="30s">30 seg</option>
-                            <option value="40s">40 seg</option> 
-                            <option value="50s">50 seg</option> 
-                            <option value="60s">60 seg</option>
+                            {this.state.roundsTime.map(times => (
+                                <option key={times} value={times} >{times}</option>
+                            ))}
                         </select> 
                     </div>
                 </div>
