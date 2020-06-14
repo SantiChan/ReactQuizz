@@ -43,30 +43,32 @@ class ConfigurationGame extends Component {
     render() {
         return(
             <div className="configuration-game">
-                <div className="configuration-game--content">
-                    <img className="configuration-game--logo" src={logo}/>
-                    <p className="configuration-name--title">Configuracion de la partida</p>
-                    <div className="configuration-game--players">
-                        <div className="configuration-game--players-main">
+                <div className="configuration-game__content">
+                    <img className="configuration-game__logo" src={logo}/>
+                    <p className="configuration-name__title">Configuracion de la partida</p>
+                    <div className="configuration-game__players">
+                        <div className="configuration-game__players-main">
                             {this.state.listPlayers.map(player => 
-                                (<div className={`configuration-game--player ${player.color}`}>
+                                (<div className={`configuration-game__player ${player.color}`}>
                                     <FontAwesomeIcon icon="poo" color="#ffffffcf" size="2x"/>
-                                    <span className="configuration-game--player-name">{player.name}</span>
+                                    <span className="configuration-game__player-name">{player.name}</span>
                                 </div>)
                             )}
                             {this.state.listPlayers.length < 5 ? 
-                                <div className="configuration-game--add-player" type="button" onClick={ this.showModal }>
+                            <div>
+                                {this.state.listPlayers.length < 1 &&  <div className="add-player__animation"></div> }
+                                <div className="configuration-game__player configuration-game__add-player" type="button" onClick={ this.showModal }>
                                     <FontAwesomeIcon icon="user-plus" color ="#939393" size="3x"/>
                                 </div> 
+                            </div>
                                 : null
                             }
                         </div>
-                        {this.state.listPlayers.length < 1 ? <span>Añade jugadores!</span> : null}
                     </div>
                     <div className='numRounds'>
                         <p>-Numero de rondas (minimo 5 maximo 10)</p>
                         <select id="rounds" onchange=""> 
-                            <option value="">-- Rondas --</option> 
+                            <option value="">__ Rondas __</option> 
                             <option value="5">5</option> 
                             <option value="6">6</option>
                             <option value="7">7</option> 
@@ -78,7 +80,7 @@ class ConfigurationGame extends Component {
                     <div className='answerTime'>
                         <p>-Tiempo de respuesta (minim0 15 seg. maximo 1 min.)</p>
                         <select id="time" onchange=""> 
-                            <option value="">-- Tiempo --</option> 
+                            <option value="">__ Tiempo __</option> 
                             <option value="15s">15 seg</option> 
                             <option value="20s">20 seg</option> 
                             <option value="30s">30 seg</option>
@@ -88,7 +90,7 @@ class ConfigurationGame extends Component {
                         </select> 
                     </div>
                 </div>
-                <div className='configuration-game--button'>
+                <div className='configuration-game__button'>
                     <Button 
                         to="/themes" 
                         onClick={(event)=> event.preventDefault()} 
