@@ -68,7 +68,7 @@ class ConfigurationGame extends Component {
                     <div className='numRounds'>
                         <p>-Numero de rondas (minimo 5 maximo 10)</p>
                         <select id="rounds" onchange=""> 
-                            <option value="">__ Rondas __</option> 
+                            <option value="">-- Rondas --</option> 
                             <option value="5">5</option> 
                             <option value="6">6</option>
                             <option value="7">7</option> 
@@ -80,7 +80,7 @@ class ConfigurationGame extends Component {
                     <div className='answerTime'>
                         <p>-Tiempo de respuesta (minim0 15 seg. maximo 1 min.)</p>
                         <select id="time" onchange=""> 
-                            <option value="">__ Tiempo __</option> 
+                            <option value="">-- Tiempo --</option> 
                             <option value="15s">15 seg</option> 
                             <option value="20s">20 seg</option> 
                             <option value="30s">30 seg</option>
