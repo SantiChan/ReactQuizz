@@ -6,67 +6,81 @@
   display: grid;
   align-items: flex-start;
 
-  .configuration-game--content {
+  .configuration-game__content {
     text-align: center;
     padding: 0 20px;
 
-    .configuration-game--logo {
+    .configuration-game__logo {
       height: 50px;
       margin: auto;
     }
-    .configuration-game--title{
+    .configuration-game__title{
       font-size: 1.3em;
     }
-    .configuration-game--players {
-      padding: 20px 50px 20px 50px;
+    .configuration-game__players {
       min-height: 140px;
       box-sizing: border-box;
-      border: solid 2px #9361c9;
-      -webkit-box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: -10px 10px 0px 0px rgba(0,0,0,0.75);
-      box-shadow: -10px -10px 0px 0px rgb(147, 97, 201);
-      margin: 50px 0 0 10px;
+      margin: 30px 0 0 10px;
 
-      .configuration-game--players-main {
+      .configuration-game__players-main {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
       }
-      .configuration-game--player{
+      .configuration-game__player {
         display: flex;
         flex-direction: column;
-        align-items: center;      
+        align-items: center;    
+        justify-content: center;  
         margin: 5px;
-        height: 50px;
-        width: 60px;
+        height: 70px;
+        width: 70px;
         padding: 10px;
-        border-radius: 12px;
+        border-radius: 100px;
         color: white;
-      }
-      .configuration-game--add-player{
-        margin: 5px;
-        height: 50px;
-        width: 60px;
-        padding: 10px;
-        background-color: #d6d6d67d;
-        border-radius: 12px;
+        box-shadow: 0 0px 1px 0 rgba(66, 66, 66, 0.08), 0 0px 3px 1px rgba(66, 66, 66, 0.16);
 
-        .configuration-game--player-name {
+        .configuration-game__player-name {
           font-size: 14px;
           font-weight: 600;
         }
       }
+      .add-player__animation {
+        height: 70px;
+        width: 70px;
+        border-radius: 100px;
+        animation: latidos 2s infinite;
+        position: fixed;
+        background-color: #f1f1f1;
+        padding: 10px;
+        margin: 5px;
+        box-shadow: 0 0px 1px 0 rgba(66, 66, 66, 0.08), 0 0px 3px 1px rgba(66, 66, 66, 0.16);
+      }
+      .configuration-game__add-player {
+        background-color: #e4e4e4;
+        z-index: 2;
+        position: relative;
+        cursor: pointer;
+      }
     }
   }
 
-  .configuration-game--button {
+  .configuration-game__button {
     align-self: end;
   }
+}
+
+@keyframes latidos {
+  from { transform: scale(1.1); }
+  50% { transform: scale(1.3); }
+  to { transform: scale(1.1); }
 }
 
 $green: #44d05c;
 $red: #ff464f;
 $blue: #4bade6;
+$pink: #f12983;
+$orange: orange;
 
 .green {
   background: $green;
@@ -78,8 +92,8 @@ $blue: #4bade6;
   background: $blue;
 }
 .pink {
-  background: #f12983;
+  background: $pink;
 }
 .orange {
-  background: orange;
+  background: $orange;
 }
